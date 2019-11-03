@@ -1,0 +1,12 @@
+.content {
+    grid-area: c;
+    background-color: rgb(85, 139, 255)
+  }
+  
+  .content img {
+    width: 500px;
+    height: 200px;
+  }
+  .item {
+      color: rgb(95, 50, 50);
+  }
