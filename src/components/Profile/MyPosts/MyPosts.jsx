@@ -11,8 +11,10 @@ const MyPosts = () => {
             <button>Add Post</button>
         </div>
         <div className={styles.posts}>
-            <Post />
-            <Post />
+            <Post message='Hey doggy!' value='5'/>
+            <Post
+             message="Saw you today with a stick in your mouth" value='40'
+             />
             <Post />
         </div>
     </div>
