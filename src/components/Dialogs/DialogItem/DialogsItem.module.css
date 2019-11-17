@@ -1,0 +1,12 @@
+.dialogsList {
+    padding: 10px;
+    }
+    
+    .dialogsList .active {
+        color: green;
+        background-color: #fff;
+    }
+    
+    .dialogsBody {
+    
+    }

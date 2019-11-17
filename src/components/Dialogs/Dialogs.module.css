@@ -1,24 +1,24 @@
 .dialogs {
 display: grid;
-grid-template-columns: 2fr 10fr;
+grid-template-columns: 6% 1fr 80%;
+grid-template-rows:  1fr;
+
 }
 
+.imag {
+ width: 10px;
+ height: 10px;
+ background-image: url('../../redux/avatars/kot.jpg');
+}
 .dialogsList {
-padding: 10px;
+ padding: 10px;
 }
-
+    
 .dialogsList .active {
-    color: green;
-}
-
-.dialogsBody {
-
+ color: green;
+ background-color: #fff;
 }
 
 .messages {
 padding: 10px;
-}
-
-.message {
-
 }

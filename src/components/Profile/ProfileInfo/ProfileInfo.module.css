@@ -1,3 +1,9 @@
 .descrBlock {
     padding: 10px;
 }
+
+.bgImage{
+    background-image: url("https://cs11.pikabu.ru/post_img/big/2018/05/26/6/1527327409144741434.png");
+    height: 250px;
+    background-repeat: no-repeat;
+}

@@ -1,4 +1,6 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
@@ -7,15 +9,16 @@ import Dialogs from './components/Dialogs/Dialogs';
 import Music from './components/Music/Music';
 import News from './components/News/News';
 import Settings from './components/Settings/Settings';
-import { BrowserRouter, Route } from 'react-router-dom';
+
 
 const App = (props) => {
+   
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar />
-                <div class='app-wrapper-content'>
+                <Navbar friends={props.state.dialogsPage.dialogs}/>
+                <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={
                          () => <Dialogs dialogs={props.state.dialogsPage.dialogs} 
                          messages={props.state.dialogsPage.messages}/>
@@ -33,3 +36,7 @@ const App = (props) => {
 }
 
 export default App;
+
+App.propTypes ={
+    profilePage: PropTypes.string
+};

@@ -5,8 +5,6 @@ import Post from './Post/Post';
 
 const MyPosts = (props) => {
 
-   
-
     let postElements = props.posts.map ( p => <Post message={p.message} likesValue={p.value} />);
 
     return <div className={styles.stilization}>
