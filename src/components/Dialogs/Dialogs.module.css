@@ -1,7 +1,7 @@
 .dialogs {
 display: grid;
-grid-template-columns: 6% 1fr 80%;
-grid-template-rows:  1fr;
+grid-template-columns: 6% 15% 1fr;
+grid-template-rows:1fr;
 
 }
 

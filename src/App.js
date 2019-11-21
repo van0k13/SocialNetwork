@@ -12,20 +12,21 @@ import Settings from './components/Settings/Settings';
 
 
 const App = (props) => {
-   
+
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar friends={props.state.dialogsPage.dialogs}/>
+                <Navbar friends={props.state.dialogsPage.dialogs} />
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={
-                         () => <Dialogs dialogs={props.state.dialogsPage.dialogs} 
-                         messages={props.state.dialogsPage.messages}/>
-                         } />
+                        () => <Dialogs dialogs={props.state.dialogsPage.dialogs}
+                            messages={props.state.dialogsPage.messages} />
+                    } />
                     <Route path='/profile' render={
-                         () => <Profile posts={props.state.profilePage.posts}/>
-                         } />
+                        () => <Profile posts={props.state.profilePage.posts}
+                            addPost={props.addPost} />
+                    } />
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />
                     <Route path='/settings' component={Settings} />
@@ -37,6 +38,6 @@ const App = (props) => {
 
 export default App;
 
-App.propTypes ={
+App.propTypes = {
     profilePage: PropTypes.string
 };

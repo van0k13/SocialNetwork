@@ -1,9 +1,11 @@
+import { rerenderEntireTree } from "../render";
+
 let state ={
     profilePage: {
         posts: [
-            {message: 'Hey doggy!', value: '5'},
-            {message: "Saw you today with a stick in your mouth", value: '40'},
-            {message: 'What the hell have you been doing ?!', value: '40'}
+            {id: 1, message: 'Hey doggy!', value: '5'},
+            {id: 2, message: "Saw you today with a stick in your mouth", value: '40'},
+            {id: 3, message: 'What the hell have you been doing ?!', value: '40'}
         ],
         
     },
@@ -20,9 +22,18 @@ let state ={
         { id: 4, name: 'Medvedi', imag: '../../redux/avatars/bear.jpg' },
         { id: 5, name: 'Mouse', imag: '../../redux/avatars/mouse.jpg' },
         { id: 6, name: 'Boolshiti', imag: '../../redux/avatars/shit.jpg' }
-    ],
+    ]
    }
-   
+}
+
+export let addPost = (postMessage) => {
+    let newPost = {
+        id: 4,
+        message: postMessage,
+        value: 0
+    };
+    state.profilePage.posts.push(newPost);
+    rerenderEntireTree(state);
 }
 
 export default state
