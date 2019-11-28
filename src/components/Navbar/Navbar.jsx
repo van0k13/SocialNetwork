@@ -24,9 +24,34 @@ const Navbar = (props) => {
                 </div>
 
             </nav>
-            <div className={styles.friendsList}>
-                <span>My Friends</span>
-                <div>{props.name}{props.imag}</div>
+            <div className={styles.friendsBar}>
+                My Friends
+                <div className={styles.friendsList}>
+                    <div >
+                        <img className={styles.kot} />
+                        <span>Kot</span>
+                    </div>
+                    <div >
+                        <img className={styles.sobaka} />
+                        <span>sobaka</span>
+                    </div>
+                    <div >
+                        <img className={styles.bear} />
+                        <span>Medved</span>
+                    </div>
+                    <div >
+                        <img className={styles.slon} />
+                        <span>slon</span>
+                    </div>
+                    <div >
+                        <img className={styles.mouse} />
+                        <span>mouse</span>
+                    </div>
+                    <div >
+                        <img className={styles.shit} />
+                        <span>shit</span>
+                    </div>
+                </div>
             </div>
         </div>
     )

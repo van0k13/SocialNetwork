@@ -14,7 +14,7 @@
 .app-wrapper-content {
     grid-area: c;
     background-color: rgb(85, 139, 255);
-    height: 100vh;
+    min-height: 100vh;
     
 }
 

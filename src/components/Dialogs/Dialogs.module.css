@@ -5,11 +5,7 @@ grid-template-rows:1fr;
 
 }
 
-.imag {
- width: 10px;
- height: 10px;
- background-image: url('../../redux/avatars/kot.jpg');
-}
+
 .dialogsList {
  padding: 10px;
 }

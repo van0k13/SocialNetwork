@@ -1,5 +1,6 @@
 import React from 'react'
-import styles from '../Dialogs.module.css'
+import styles from './Image.module.css'
+import cat from '../../../redux/avatars/kot.jpg'
 
 
 
@@ -7,7 +8,8 @@ import styles from '../Dialogs.module.css'
 const Image = (props) => {
     
     return (
-        <div ><img src={props.imag} />
+        <div backgroundImage className={styles.imag}>
+            <img src='/src/redux/avatars/dog.png'  alt='picter'/>
         </div>
     )
 }
