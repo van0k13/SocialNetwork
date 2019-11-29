@@ -1,12 +1,6 @@
-.dialogsList {
-    padding: 10px;
-    }
-    
-    .dialogsList .active {
-        color: green;
-        background-color: #fff;
-    }
-    
-    .dialogsBody {
-    
-    }
+.imag{
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+}

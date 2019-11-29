@@ -1,4 +1,12 @@
+import kot from './avatars/kot.jpg'
+import dog from './avatars/dog.png'
+import bear from './avatars/bear.png'
+import slon from './avatars/elephant.png'
+import mouse from './avatars/mouse.png'
+import shit from './avatars/shit.png'
+
 let rerenderEntireTree = () => {
+
 
 }
 
@@ -19,12 +27,12 @@ let state = {
             { message: 'What the fuck are you doing right here ?!' }
         ],
         dialogs: [
-            { id: 1, name: 'Koti', imag: '../../redux/avatars/kot.jpg' },
-            { id: 2, name: 'Sobaki', imag: '../../redux/avatars/dog.jpg' },
-            { id: 3, name: 'Snoli', imag: '../../redux/avatars/elephant.jpg' },
-            { id: 4, name: 'Medvedi', imag: '../../redux/avatars/bear.jpg' },
-            { id: 5, name: 'Mouse', imag: '../../redux/avatars/mouse.jpg' },
-            { id: 6, name: 'Boolshiti', imag: '../../redux/avatars/shit.jpg' }
+            { id: 1, name: 'Koti', imag: kot },
+            { id: 2, name: 'Sobaki', imag: dog },
+            { id: 3, name: 'Snoli', imag: slon },
+            { id: 4, name: 'Medvedi', imag: bear },
+            { id: 5, name: 'Mouse', imag: mouse },
+            { id: 6, name: 'Boolshiti', imag: shit }
         ],
         newMessageText: ''
     }
@@ -61,7 +69,7 @@ export const updateNewPostText = (newText) => {
     rerenderEntireTree(state);
 }
 
-export const subscribe  = (observer) => {
+export const subscribe = (observer) => {
     rerenderEntireTree = observer;
 }
 export default state

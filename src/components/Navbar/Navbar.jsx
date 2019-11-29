@@ -1,9 +1,13 @@
 import React from 'react';
 import styles from './Navbar.module.css';
 import { NavLink } from 'react-router-dom'
+import Friends from './Friends/Friends';
 
 
 const Navbar = (props) => {
+
+let friendsElements = props.friends.map(f => <Friends imag={f.imag} name={f.name}/> );
+
     return (
         <div className={styles.nav}>
             <nav className={styles.tabs}>
@@ -25,33 +29,8 @@ const Navbar = (props) => {
 
             </nav>
             <div className={styles.friendsBar}>
-                My Friends
-                <div className={styles.friendsList}>
-                    <div >
-                        <img className={styles.kot} />
-                        <span>Kot</span>
-                    </div>
-                    <div >
-                        <img className={styles.sobaka} />
-                        <span>sobaka</span>
-                    </div>
-                    <div >
-                        <img className={styles.bear} />
-                        <span>Medved</span>
-                    </div>
-                    <div >
-                        <img className={styles.slon} />
-                        <span>slon</span>
-                    </div>
-                    <div >
-                        <img className={styles.mouse} />
-                        <span>mouse</span>
-                    </div>
-                    <div >
-                        <img className={styles.shit} />
-                        <span>shit</span>
-                    </div>
-                </div>
+              <span>My Friends</span>
+             <div className={styles.friendsItems}>{friendsElements}</div> 
             </div>
         </div>
     )

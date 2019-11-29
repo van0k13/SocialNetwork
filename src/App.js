@@ -27,6 +27,7 @@ const App = (props) => {
                     } />
                     <Route path='/profile' render={
                         () => <Profile profilePage={props.state.profilePage}
+                            friends={props.state.dialogsPage.dialogs}
                             addPost={props.addPost}
                             updateNewPostText={props.updateNewPostText} />
                     } />

@@ -23,53 +23,10 @@
     text-align: center;
 }
 
-.friendsList {
-    font-size: small;
+.friendsItems {
     display: grid;
     grid-template-columns: 65px 65px 65px;
-    grid-template-rows: 65px 65px;
-    grid-gap: 8px;
-}
-
-.kot{
-    background-image: url(../../redux/avatars/kot.jpg);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-}
-.sobaka{
-    background-image: url(../../redux/avatars/dog.png);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-}
-.bear{
-    background-image: url(../../redux/avatars/bear.png);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-}
-.slon{
-    background-image: url(../../redux/avatars/elephant.png);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-}
-.mouse{
-    background-image: url(../../redux/avatars/mouse.png);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
-}
-.shit{
-    background-image: url(../../redux/avatars/shit.png);
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 30px;
+    width: 100%;
+    grid-gap: 10px;
+    padding: 10px;
 }
