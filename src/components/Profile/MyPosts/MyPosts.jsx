@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './MyPosts.module.css';
 import Post from './Post/Post';
+import {addPostActionCreator, updateNewPostTextActionCreator } from '../../../redux/state';
 
 
 const MyPosts = (props) => {
@@ -10,13 +11,12 @@ const MyPosts = (props) => {
     let addTextArea = React.createRef();
 
     let addPost = () => {
-        props.dispatch({type: 'ADD_POST'})
-
+        props.dispatch(addPostActionCreator())
     };
 
     let onPostChange = () => {
         let text = addTextArea.current.value;
-        props.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText : text})
+        props.dispatch(updateNewPostTextActionCreator(text))
     };
 
     return <div className={styles.stilization}>
