@@ -10,13 +10,13 @@ const MyPosts = (props) => {
     let addTextArea = React.createRef();
 
     let addPost = () => {
-        props.addPost();
+        props.dispatch({type: 'ADD_POST'})
 
     };
 
     let onPostChange = () => {
         let text = addTextArea.current.value;
-        props.updateNewPostText(text)
+        props.dispatch({type: 'UPDATE_NEW_POST_TEXT', newText : text})
     };
 
     return <div className={styles.stilization}>
