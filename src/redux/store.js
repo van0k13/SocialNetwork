@@ -28,12 +28,12 @@ let store = {
                 { id: 3, message: 'What the fuck are you doing right here ?!' }
             ],
             dialogs: [
-                { id: 1, name: 'Koti', imag: kot },
-                { id: 2, name: 'Sobaki', imag: dog },
-                { id: 3, name: 'Snoli', imag: slon },
-                { id: 4, name: 'Medvedi', imag: bear },
-                { id: 5, name: 'Mouse', imag: mouse },
-                { id: 6, name: 'Boolshiti', imag: shit }
+                { id: 1, name: 'Koti'},
+                { id: 2, name: 'Sobaki'},
+                { id: 3, name: 'Snoli'},
+                { id: 4, name: 'Medvedi'},
+                { id: 5, name: 'Mouse'},
+                { id: 6, name: 'Boolshiti'}
             ],
             newMessageText: ''
         }

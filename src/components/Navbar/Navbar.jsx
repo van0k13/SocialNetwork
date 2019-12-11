@@ -6,7 +6,7 @@ import Friends from './Friends/Friends';
 
 const Navbar = (props) => {
 
-let friendsElements = props.friends.map(f => <Friends imag={f.imag} name={f.name}/> );
+    let friendsElements = props.friends.map(f => <Friends imag={f.imag} name={f.name}/> );
 
     return (
         <div className={styles.nav}>
@@ -29,8 +29,8 @@ let friendsElements = props.friends.map(f => <Friends imag={f.imag} name={f.name
 
             </nav>
             <div className={styles.friendsBar}>
-              <span>My Friends</span>
-             <div className={styles.friendsItems}>{friendsElements}</div> 
+                <span>My Friends</span>
+                <div className={styles.friendsItems}>{friendsElements}</div>
             </div>
         </div>
     )

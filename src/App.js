@@ -11,20 +11,21 @@ import News from './components/News/News';
 import Settings from './components/Settings/Settings';
 
 
+
 const App = (props) => {
     return (
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar friends={props.state.dialogsPage.dialogs} />
+                <Navbar friends={props.state.dialogsReducer.dialogs} />
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={
-                        () => <Dialogs dialogsPage={props.state.dialogsPage}
+                        () => <Dialogs dialogsPage={props.state.dialogsReducer}
                             dispatch={props.dispatch}/>
                     } />
                     <Route path='/profile' render={
-                        () => <Profile profilePage={props.state.profilePage}
-                            friends={props.state.dialogsPage.dialogs}
+                        () => <Profile profilePage={props.state.profileReducer}
+                            friends={props.state.dialogsReducer.dialogs}
                             dispatch={props.dispatch}/>
                     } />
                     <Route path='/news' component={News} />
