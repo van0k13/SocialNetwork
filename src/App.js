@@ -17,16 +17,14 @@ const App = (props) => {
         <BrowserRouter>
             <div className='app-wrapper'>
                 <Header />
-                <Navbar friends={props.state.dialogsReducer.dialogs} />
+                <Navbar friends={props.store.getState().dialogsPage.dialogs} />
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={
-                        () => <Dialogs dialogsPage={props.state.dialogsReducer}
-                            dispatch={props.dispatch}/>
+                        () => <Dialogs store={props.store}/>
                     } />
                     <Route path='/profile' render={
-                        () => <Profile profilePage={props.state.profileReducer}
-                            friends={props.state.dialogsReducer.dialogs}
-                            dispatch={props.dispatch}/>
+                        () => <Profile store={props.store}
+                            />
                     } />
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />

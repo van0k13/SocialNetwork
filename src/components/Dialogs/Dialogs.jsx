@@ -7,12 +7,13 @@ import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../.
 
 
 const Dialogs = (props) => {
-    let dialogsElements = props.dialogsPage.dialogs.map(d => <DialogItem imag={d.imag} name={d.name} id={d.id} />);
-    let messageElements = props.dialogsPage.messages.map(text => <Message text={text.message} />);
-    let newMessageText = props.dialogsPage.newMessageText;
+    let state = props.store.getState().dialogsPage;
+    let dialogsElements = state.dialogs.map(d => <DialogItem imag={d.imag} name={d.name} id={d.id} />);
+    let messageElements = state.messages.map(text => <Message text={text.message} />);
+    let newMessageText = state.newMessageText;
 
     let sendMessage = () => {
-        props.dispatch(addMessageActionCreator());
+        props.store.dispatch(addMessageActionCreator());
     }
     let onKeyPress = (e) => {
         if (e.key === "Enter") {
@@ -22,7 +23,7 @@ const Dialogs = (props) => {
     let onMessageChange = (e) => {
         let text = e.currentTarget.value;
         
-        props.dispatch(updateNewMessageTextActionCreator(text));
+        props.store.dispatch(updateNewMessageTextActionCreator(text));
     };
 
     return (
