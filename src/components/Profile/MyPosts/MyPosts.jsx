@@ -16,12 +16,17 @@ let newPostElement = React.createRef();
         let text = e.currentTarget.value;
         props.updateNewPostText(text);
     };
+    let onKeyPress = (e) => {
+        if (e.key === "Enter") {
+            addPost()
+        }
+    }
     
 
     return <div className={styles.stilization}>
         <h3>My posts</h3>
         <div>
-            <textarea onKeyPress={props.onKeyPress} ref={newPostElement} onChange={onPostChange}value={props.newPostText} />
+            <textarea onKeyPress={onKeyPress} ref={newPostElement} onChange={onPostChange}value={props.newPostText} />
         </div>
         <div>
             <button onClick={addPost}>Add Post</button>

@@ -8,42 +8,48 @@ import shit from './avatars/shit.png'
 const ADD_MESSAGE = 'ADD_MESSAGE'
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT'
 
-let initialState =   {messages: [
-    { id: 1, message: 'hi' },
-    { id: 2, message: 'So what the big fucking deal?!' },
-    { id: 3, message: 'What the fuck are you doing right here ?!' }
-],
-dialogs: [
-    { id: 1, name: 'Koti', imag: kot},
-    { id: 2, name: 'Sobaki', imag: dog },
-    { id: 3, name: 'Snoli', imag: slon},
-    { id: 4, name: 'Medvedi', imag: bear },
-    { id: 5, name: 'Mouse', imag: mouse },
-    { id: 6, name: 'Boolshiti', imag: shit}
-],
-newMessageText: ''
+let initialState = {
+    messages: [
+        { id: 1, message: 'hi' },
+        { id: 2, message: 'So what the big fucking deal?!' },
+        { id: 3, message: 'What the fuck are you doing right here ?!' }
+    ],
+    dialogs: [
+        { id: 1, name: 'Koti', imag: kot },
+        { id: 2, name: 'Sobaki', imag: dog },
+        { id: 3, name: 'Snoli', imag: slon },
+        { id: 4, name: 'Medvedi', imag: bear },
+        { id: 5, name: 'Mouse', imag: mouse },
+        { id: 6, name: 'Boolshiti', imag: shit }
+    ],
+    newMessageText: ''
 }
 
 const dialogsReducer = (state = initialState, action) => {
+    let stateCopy;
+
     switch (action.type) {
         case ADD_MESSAGE:
             let actualMessage = state.newMessageText
-            let newMessage = {
-                id: 4,
-                message: actualMessage,
-            };
-            state.messages.push(newMessage);
-            state.newMessageText = '';
-            return state;
+            stateCopy = {
+                ...state,
+                newMessageText: '',
+                messages: [...state.messages, {id: 7, message: actualMessage}]
+            }
+            return stateCopy;
         case UPDATE_NEW_MESSAGE_TEXT:
-            state.newMessageText = action.newText;
-            return state;
+            stateCopy = {
+                ...state,
+                newMessageText: action.newText
+            }
+            return stateCopy;
+
         default: return state;
     }
 }
 
-export const addMessageActionCreator = () => ({type: ADD_MESSAGE })
-export const updateNewMessageTextActionCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text})
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE })
+export const updateNewMessageTextActionCreator = (text) => ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text })
 
 
 export default dialogsReducer;
