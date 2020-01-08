@@ -1,15 +1,18 @@
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET_USERS';
+const FOLLOW = 'userReducer/FOLLOW';
+const UNFOLLOW = 'userReducer/UNFOLLOW';
+const SET_USERS = 'userReducer/SET_USERS';
+const SET_CURRENT_PAGE = 'userReducer/SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'userReducer/SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_FETCHING = 'userReducer/TOGGLE_IS_FETCHING'
 
 
 
 let initialState = {
-    users: [
-        // { id: 1, photoUrl: '#', followed: true, fullname: 'Vanok', status: 'I like icecreame', location: { city: 'Kyiv', country: 'Ukraine' } },
-        // { id: 2, photoUrl: '#',followed: false, fullname: 'Rusik', status: 'Lets friends!!!', location: { city: 'Los-Santos', country: 'USA' } },
-        // { id: 3, photoUrl: '#',followed: true, fullname: 'Olga', status: 'Love my Boy', location: { city: 'Vinnitsa', country: 'Ukraine' } },
-    ]
+    users: [],
+    pageSize: 5,
+    totalUsersCount: 0,
+    currentPage: 1,
+    isFetching: false
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -39,16 +42,26 @@ const usersReducer = (state = initialState, action) => {
             }
 
         case SET_USERS: {
-            return { ...state, users: [...state.users, ...action.users] }
+            return { ...state, users: action.users}
         }
+        case SET_CURRENT_PAGE: {
+            return {...state, currentPage: action.currentPage}
+        }
+        case SET_TOTAL_USERS_COUNT:
+            return {...state, totalUsersCount: action.usersCount}
+        case TOGGLE_IS_FETCHING:
+            return {...state, isFetching: action.isFetching}
         default:
             return state;
     }
 }
 
-export const followAC = (userId) => ( { type: FOLLOW, userId } );
-export const unFollowAC = (userId) => ( { type: UNFOLLOW, userId } );
-export const setUsersAC = (users) => ( { type: SET_USERS, users } );
+export const follow = (userId) => ( { type: FOLLOW, userId } );
+export const unFollow = (userId) => ( { type: UNFOLLOW, userId } );
+export const setUsers = (users) => ( { type: SET_USERS, users } );
+export const setCurrentPage = (currentPage) => ( {type: SET_CURRENT_PAGE, currentPage} );
+export const setTotalUsersCount = (usersCount) => ( {type: SET_TOTAL_USERS_COUNT, usersCount } )
+export const setIsFetching = (isFetching) => ( {type: TOGGLE_IS_FETCHING, isFetching } )
 
 
 
