@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
-import Profile from './components/Profile/Profile';
+import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from './components/Dialogs/DialogsContainer';
 import Music from './components/Music/Music';
 import News from './components/News/News';
@@ -21,12 +21,11 @@ const App = (props) => {
                 <Navbar store={props.store} />
                 <div className='app-wrapper-content'>
                     <Route path='/dialogs' render={
-                        () => <DialogsContainer store={props.store} />
-                    } />
-                    <Route path='/profile' render={
-                        () => <Profile store={props.store}
-                        />
-                    } />
+                        () => <DialogsContainer  />} />
+
+                    <Route path='/profile/:userId' render={
+                        () => <ProfileContainer  />} />
+                        
                     <Route path='/news' component={News} />
                     <Route path='/music' component={Music} />
                     <Route path='/settings' component={Settings} />
