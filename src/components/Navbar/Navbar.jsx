@@ -35,7 +35,7 @@ const Navbar = () => {
                 </div>
                 <div className={styles.item}>
                     <NavLink to='/users' activeClassName={styles.activeLink}>Users to Find</NavLink>
-                </div>   
+                </div>       
                 <div className={styles.item}>
                     <NavLink to='/news' activeClassName={styles.activeLink}>News</NavLink>
                 </div>
