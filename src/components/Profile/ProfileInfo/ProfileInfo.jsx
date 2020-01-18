@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/preloader/preloader';
+import skelet from '../../common/assets/skeletIcon.png'
 
 
 const ProfileInfo = (props) => {
@@ -16,7 +17,8 @@ const ProfileInfo = (props) => {
             Status: {props.profile.aboutMe}<br/>
             FullName: {props.profile.fullName}<br/>
             Contacts: {props.profile.contacts.facebook}<br/>
-            LookingForAJob: {props.profile.lookingForAJob? 'Yes, of course' : 'Just messing around'}
+            LookingForAJob: {props.profile.lookingForAJob? 'Yes, of course' : 'Just messing around'}<br/>
+            ProfilePhoto: {props.profile.photos.small? props.profile.photos.small : skelet}
             
         </div>
 
