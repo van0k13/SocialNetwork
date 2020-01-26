@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import React from 'react';
 import Dialogs from './Dialogs'
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/reducer_dialogs'
 import { connect } from 'react-redux';

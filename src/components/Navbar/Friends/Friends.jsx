@@ -8,7 +8,7 @@ const Friends = (props) => {
           
                 <img src={props.image}
                     className={styles.imag}
-                    alt='picture' />
+                    alt='friends' />
                 <span>{props.name}
                 </span>
             </div>

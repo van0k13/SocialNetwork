@@ -13,8 +13,8 @@ const ProfileInfo = (props) => {
             <img  alt='' />
         </div> */}
         <div className={styles.descrBlock}>
-            <img src={props.profile.photos.large? props.profile.photos.large: skelet} className={styles.bigPhoto}/><br/>
-            Status: <ProfileStatus status={props.profile.aboutMe}/><br/>
+            <img alt='nothing' src={props.profile.photos.large? props.profile.photos.large: skelet} className={styles.bigPhoto}/><br/>
+            Status: <ProfileStatus updateUserStatus={props.updateUserStatus} status={props.status}/><br/>
             FullName: {props.profile.fullName}<br/>
             Contacts: {props.profile.contacts.facebook}<br/>
             LookingForAJob: {props.profile.lookingForAJob? 'Hire me!!!' : 'Not interesting in job seeking'}<br/>
