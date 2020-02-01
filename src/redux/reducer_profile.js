@@ -1,7 +1,6 @@
 import { profileAPI } from "../api/api";
 
 const ADD_POST = 'ADD_POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT';
 const SET_USER_PROFILE = 'profile_reducer/SET_USER_PROFILE'
 const SET_USER_STATUS = 'profile_reducer/SET_USER_STATUS'
 
@@ -11,7 +10,6 @@ let initialState = {
         { id: 2, message: "Saw you today with a stick in your mouth", value: '40' },
         { id: 3, message: 'What the hell have you been doing ?!', value: '40' }
     ],
-    newPostText: '',
     profile: null,
     status: ''
 };
@@ -19,11 +17,10 @@ let initialState = {
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            let actualMessage = state.newPostText
             return {
                 ...state,
                 newPostText: '',
-                posts: [...state.posts, { id: 4, message: actualMessage }]
+                posts: [...state.posts, { id: 4, message: action.newPost }]
             };
         case UPDATE_NEW_POST_TEXT:
             return {
@@ -43,7 +40,7 @@ const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const updateNewPostTextActionCreator = (text) => ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+export const addPostActionCreator = (newPost) => ({ type: ADD_POST, newPost })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setUserStatus = (status) => ({ type: SET_USER_STATUS, status })
 export const getUserProfile = (userId) => (dispatch) => {
@@ -69,7 +66,5 @@ export const updateUserStatus = (status) => (dispatch) => {
             }
         })
 }
-
-export const addPostActionCreator = () => ({ type: ADD_POST })
 
 export default profileReducer;

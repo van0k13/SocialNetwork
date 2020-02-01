@@ -5,22 +5,33 @@ import skelet from '../../common/assets/skeletIcon.png'
 import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = (props) => {
-    if(!props.profile) {
+    if (!props.profile) {
         return <Preloader />
     }
     return <div>
-        {/* <div className={styles.bgImage}>
-            <img  alt='' />
-        </div> */}
         <div className={styles.descrBlock}>
-            <img alt='nothing' src={props.profile.photos.large? props.profile.photos.large: skelet} className={styles.bigPhoto}/><br/>
-            Status: <ProfileStatus updateUserStatus={props.updateUserStatus} status={props.status}/><br/>
-            FullName: {props.profile.fullName}<br/>
-            Contacts: {props.profile.contacts.facebook}<br/>
-            LookingForAJob: {props.profile.lookingForAJob? 'Hire me!!!' : 'Not interesting in job seeking'}<br/>
-            
+            <img
+                alt='nothing'
+                src={props.profile.photos.large ? props.profile.photos.large : skelet}
+                className={styles.bigPhoto}
+            /><br/>
+            Status:
+            <ProfileStatus
+                updateUserStatus={props.updateUserStatus}
+                status={props.status}
+            /><br/>
+            FullName:
+            {props.profile.fullName}
+            <br/>
+            Contacts:
+            {props.profile.contacts.facebook}
+            <br/>
+            LookingForAJob:
+            {props.profile.lookingForAJob ? 'Hire me!!!' : 'Not interesting in job seeking'}
+            <br/>
+
         </div>
     </div>
-    }
+}
 
 export default ProfileInfo;
