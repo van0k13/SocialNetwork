@@ -6,7 +6,6 @@ import mouse from './avatars/mouse.png';
 import shit from './avatars/shit.png'
 
 const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE_NEW_MESSAGE_TEXT'
 
 let initialState = {
     messages: [

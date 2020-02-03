@@ -22,11 +22,6 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: '',
                 posts: [...state.posts, { id: 4, message: action.newPost }]
             };
-        case UPDATE_NEW_POST_TEXT:
-            return {
-                ...state,
-                newPostText: action.newText
-            };
         case SET_USER_PROFILE:
             return {
                 ...state, profile: action.profile
