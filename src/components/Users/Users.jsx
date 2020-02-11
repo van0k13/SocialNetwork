@@ -4,7 +4,7 @@ import styles from './Users.module.css'
 import { NavLink } from 'react-router-dom';
 
 
-let Users = (props) => {
+const Users = (props) => {
     let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
     let pages = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -14,7 +14,7 @@ let Users = (props) => {
         <div>
             <div>
                 {pages.map(p => {
-                    return <span className={props.currentPage === p && styles.selectedPage}
+                    return <span className={props.currentUsersPage === p && styles.selectedPage}
                         onClick={(e) => { props.currentPage(p) }}>{' '}{p}</span>
                 })}
             </div>
