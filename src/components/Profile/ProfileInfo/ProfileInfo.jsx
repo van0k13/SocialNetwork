@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './ProfileInfo.module.css';
 import Preloader from '../../common/preloader/preloader';
 import skelet from '../../common/assets/skeletIcon.png'
-import ProfileStatus from './ProfileStatus'
+import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -16,7 +16,7 @@ const ProfileInfo = (props) => {
                 className={styles.bigPhoto}
             /><br/>
             Status:
-            <ProfileStatus
+            <ProfileStatusWithHooks
                 updateUserStatus={props.updateUserStatus}
                 status={props.status}
             /><br/>
