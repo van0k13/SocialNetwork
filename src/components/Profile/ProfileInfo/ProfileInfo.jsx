@@ -4,30 +4,30 @@ import Preloader from '../../common/preloader/preloader';
 import skelet from '../../common/assets/skeletIcon.png'
 import ProfileStatusWithHooks from './ProfileStatusWithHooks'
 
-const ProfileInfo = (props) => {
-    if (!props.profile) {
+const ProfileInfo = ({profile, updateUserStatus, status, }) => {
+    if (!profile) {
         return <Preloader />
     }
     return <div>
         <div className={styles.descrBlock}>
             <img
                 alt='nothing'
-                src={props.profile.photos.large ? props.profile.photos.large : skelet}
+                src={profile.photos.large ? profile.photos.large : skelet}
                 className={styles.bigPhoto}
             /><br/>
             Status:
             <ProfileStatusWithHooks
-                updateUserStatus={props.updateUserStatus}
-                status={props.status}
+                updateUserStatus={updateUserStatus}
+                status={status}
             /><br/>
             FullName:
-            {props.profile.fullName}
+            {profile.fullName}
             <br/>
             Contacts:
-            {props.profile.contacts.facebook}
+            {profile.contacts.facebook}
             <br/>
             LookingForAJob:
-            {props.profile.lookingForAJob ? 'Hire me!!!' : 'Not interesting in job seeking'}
+            {profile.lookingForAJob ? 'Hire me!!!' : 'Not interesting in job seeking'}
             <br/>
 
         </div>

@@ -1,6 +1,6 @@
 import { setAuth } from './auth_reducer';
 
-const INITIALIZED_SUCCESSED = 'authReducer/INITIALIZED_SUCCESSED';
+const INITIALIZED_SUCCESSED = 'appReducer/INITIALIZED_SUCCESSED';
 
 
 

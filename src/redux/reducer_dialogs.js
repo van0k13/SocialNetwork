@@ -5,7 +5,7 @@ import slon from './avatars/elephant.png';
 import mouse from './avatars/mouse.png';
 import shit from './avatars/shit.png'
 
-const ADD_MESSAGE = 'ADD_MESSAGE'
+const ADD_MESSAGE = 'reducer_dialogs/ADD_MESSAGE'
 
 let initialState = {
     messages: [

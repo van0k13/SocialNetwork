@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route, withRouter } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -28,7 +28,6 @@ class App extends React.Component {
             return <Preloader />
         } else {
             return (
-                <BrowserRouter>
                     <div className='app-wrapper'>
                         <HeaderContainer />
                         <Navbar store={this.props.store} />
@@ -48,7 +47,6 @@ class App extends React.Component {
                                 () => <UsersContainer />} />
                         </div>
                     </div>
-                </BrowserRouter>
             );
         }
     }

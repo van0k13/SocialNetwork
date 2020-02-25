@@ -7,53 +7,53 @@ const instance = axios.create({
 })
 
 export const usersAPI = {
-    getUsers(currentPage = 1, pageSize = 10) {
-        return instance
+    async getUsers(currentPage = 1, pageSize = 10) {
+        const response = await instance
             .get(`users?page=${currentPage}&count=${pageSize}`)
-            .then(response => response.data)
+        return response.data
     },
-    followUser(userId) {
-        return instance
+    async followUser(userId) {
+        const response = await instance
             .post(`follow/${userId}`, {})
-            .then(response => response.data)
+        return response.data
     },
-    unfollowUser(userId) {
-        return instance
+    async unfollowUser(userId) {
+        const response = await instance
             .delete(`follow/${userId}`)
-            .then(response => response.data)
+        return response.data
     } 
 }
 export const profileAPI = {
-    getProfile(userId) {
-        return instance
+    async getProfile(userId) {
+        const response = await instance
             .get(`profile/` + userId)
-            .then(response => response.data)
+        return response.data
     },
-    getStatus(userId) {
-        return instance
-        .get(`profile/status/` + userId)
-        .then(response => response.data)
+    async getStatus(userId) {
+        const response = await instance
+            .get(`profile/status/` + userId)
+        return response.data
     },
-    updateStatus(status) {
-        return instance
-        .put(`profile/status/`, {status: status})
-        .then(response => response.data)
+    async updateStatus(status) {
+        const response = await instance
+            .put(`profile/status/`, { status: status })
+        return response.data
     }
 }
 export const authAPI = {
-    authMe() {
-        return instance
+    async authMe() {
+        const response = await instance
             .get(`auth/me`)
-            .then(response => response.data)
+        return response.data
     },
-    logIn (email, password, rememberMe = false) {
-        return instance
-        .post(`auth/login`, {email, password, rememberMe})
-        .then(response => response.data);
+    async logIn (email, password, rememberMe = false) {
+        const response = await instance
+            .post(`auth/login`, { email, password, rememberMe })
+        return response.data
     },
-    logOut () {
-        return instance
-        .delete(`auth/login`)
-        .then(response => response.data);
+    async logOut () {
+        const response = await instance
+            .delete(`auth/login`)
+        return response.data
     }
 }
