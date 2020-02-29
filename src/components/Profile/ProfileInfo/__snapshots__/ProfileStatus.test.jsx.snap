@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Profile Status Component Match 1`] = `undefined`;
+
+exports[`Profile Status Component stat 1`] = `undefined`;
+
+exports[`Profile Status Component status from props should be in state 1`] = `undefined`;

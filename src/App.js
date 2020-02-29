@@ -1,6 +1,8 @@
 import React from 'react';
+import store from './redux/redux-store';
+import { BrowserRouter } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -28,25 +30,25 @@ class App extends React.Component {
             return <Preloader />
         } else {
             return (
-                    <div className='app-wrapper'>
-                        <HeaderContainer />
-                        <Navbar store={this.props.store} />
-                        <div className='app-wrapper-content'>
-                            <Route path='/dialogs' render={
-                                () => <DialogsContainer />} />
+                <div className='app-wrapper'>
+                    <HeaderContainer />
+                    <Navbar store={this.props.store} />
+                    <div className='app-wrapper-content'>
+                        <Route path='/dialogs' render={
+                            () => <DialogsContainer />} />
 
-                            <Route path='/profile/:userId?' render={
-                                () => <ProfileContainer />} />
-                            <Route path='/login' render={
-                                () => <Login />} />
+                        <Route path='/profile/:userId?' render={
+                            () => <ProfileContainer />} />
+                        <Route path='/login' render={
+                            () => <Login />} />
 
-                            <Route path='/news' component={News} />
-                            <Route path='/music' component={Music} />
-                            <Route path='/settings' component={Settings} />
-                            <Route path='/users' render={
-                                () => <UsersContainer />} />
-                        </div>
+                        <Route path='/news' component={News} />
+                        <Route path='/music' component={Music} />
+                        <Route path='/settings' component={Settings} />
+                        <Route path='/users' render={
+                            () => <UsersContainer />} />
                     </div>
+                </div>
             );
         }
     }
@@ -55,10 +57,15 @@ class App extends React.Component {
 const mstp = (state) => ({
     initialized: state.app.initialized
 })
-export default compose(
+let AppContainer = compose(
     withRouter,
     connect(mstp, { initializeApp, logout }))(App);
-
-App.propTypes = {
-    profilePage: PropTypes.string
+let MainApp = (props) => {
+    return <BrowserRouter>
+        <Provider store={store} >
+            <AppContainer />
+        </Provider >
+    </BrowserRouter>
 };
+
+export default MainApp;

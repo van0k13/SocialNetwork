@@ -4,10 +4,10 @@ import styles from '../Dialogs.module.css'
 
 
 
-const Message = (props) => {
+const Message = ({text}) => {
     return (
         <div className={styles.message}>
-            {props.text}
+            {text}
         </div>
     )
 }
