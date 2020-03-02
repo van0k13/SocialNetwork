@@ -2,11 +2,14 @@ import React from 'react'
 import Pagination from './Pagination';
 import User from './User';
 
-const Users = ({ currentUsersPage, currentPage, totalUsersCount, pageSize, users, followingInProgress, unFollow, follow }) => {
+const Users = ({ portionSize, currentUsersPage, currentPage,
+    totalUsersCount, pageSize, users, followingInProgress,
+    unFollow, follow }) => {
     return (
         <div>
             <Pagination
-                totalUsersCount={totalUsersCount}
+                portionSize={portionSize}
+                totalItemsCount={totalUsersCount}
                 currentUsersPage={currentUsersPage}
                 currentPage={currentPage}
                 pageSize={pageSize}
