@@ -1,5 +1,5 @@
 import React from 'react'
-import userPhoto from '../../redux/avatars/kot.jpg'
+import skelet from '../common/assets/skeletIcon.png'
 import styles from './Users.module.css'
 import { NavLink } from 'react-router-dom';
 
@@ -9,7 +9,10 @@ const User = ({ user, followingInProgress, unFollow, follow}) => {
             <span>
                 <div>
                     <NavLink to={'/profile/' + user.id}>
-                        <img alt='nothing' src={user.photos.small !== null ? user.photos.small : userPhoto} className={styles.userPhoto} />
+                        <img alt='nothing' src={user.photos.small !== null 
+                            ? user.photos.small 
+                            : skelet} 
+                            className={styles.userPhoto} />
                     </NavLink>
                 </div>
                 <div>
@@ -30,10 +33,10 @@ const User = ({ user, followingInProgress, unFollow, follow}) => {
                     <div>{user.name}</div>
                     <div>{user.status}</div>
                 </span>
-                <span>
-                    <div>{'user.location.city'}</div>
-                    <div>{'user.location.country'}</div>
-                </span>
+                {/* <span>
+                    <div>{user.location.city}</div>
+                    <div>{user.location.country}</div>
+                </span> */}
             </span>
         </div>
     )

@@ -21,7 +21,7 @@ export const usersAPI = {
         const response = await instance
             .delete(`follow/${userId}`)
         return response.data
-    } 
+    }
 }
 export const profileAPI = {
     async getProfile(userId) {
@@ -52,7 +52,7 @@ export const profileAPI = {
     },
     async saveProfile(profile) {
         const response = await instance
-        .put(`profile/`, profile)
+            .put(`profile/`, profile)
         return response.data
     },
 }
@@ -62,14 +62,21 @@ export const authAPI = {
             .get(`auth/me`)
         return response.data
     },
-    async logIn (email, password, rememberMe = false) {
+    async logIn(email, password, rememberMe = false, captcha = null) {
         const response = await instance
-            .post(`auth/login`, { email, password, rememberMe })
+            .post(`auth/login`, { email, password, rememberMe, captcha })
         return response.data
     },
-    async logOut () {
+    async logOut() {
         const response = await instance
             .delete(`auth/login`)
+        return response.data
+    }
+}
+export const securityAPI = {
+    async getCaptchaUrl() {
+        const response = await instance
+            .get(`security/get-captcha-url`)
         return response.data
     }
 }
