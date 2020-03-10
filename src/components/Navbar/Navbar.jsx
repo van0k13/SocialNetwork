@@ -45,8 +45,6 @@ const Navbar = () => {
                 <div className={styles.item}>
                     <NavLink to='/settings' activeClassName={styles.activeLink}>Settings</NavLink>
                 </div>
-                
-
             </nav>
             <div className={styles.friendsBar}>
                 <span>My Friends</span>

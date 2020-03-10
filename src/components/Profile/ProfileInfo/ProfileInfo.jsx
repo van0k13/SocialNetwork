@@ -26,8 +26,7 @@ const ProfileInfo = ({ profile, updateStatus, updateUserStatus, status, isOwner,
         if(updateStatus) {deActivateEditMode()}
         
     }
-    return <div>
-        <div className={styles.descrBlock}>
+    return   <div className={styles.descrBlock}>
             <img
                 alt='nothing'
                 src={profile.photos.large || skelet}
@@ -50,7 +49,6 @@ const ProfileInfo = ({ profile, updateStatus, updateUserStatus, status, isOwner,
                     status={status} />
             }
         </div>
-    </div>
 }
 
 const ProfileData = ({ isOwner, profile, updateUserStatus, status, activateEditMode }) => {

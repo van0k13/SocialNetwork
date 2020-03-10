@@ -1,4 +1,5 @@
 .descrBlock {
+    grid-area: profileInfo;
     padding: 10px;
 }
 

@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './Profile.module.css'
 import MyPostsContainer from './MyPosts/MyPostsContainer';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
 const Profile = ({ profile, updateStatus, status, updateUserStatus, isOwner, savePhoto, saveProfile }) => {
 
-    return <div>
+    return <div className={styles.profileBlock}>
         <ProfileInfo profile={profile}
             updateStatus={updateStatus}
             saveProfile={saveProfile}
