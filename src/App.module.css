@@ -1,0 +1,25 @@
+.appWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.navbarPlusContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 90%;
+  margin: 10px auto;
+}
+.navbar {
+  border: 1px solid #3e3e3e !important;
+  border-radius: 4px !important;
+  background-color: #282828;
+  width: 20%;
+}
+.appWrapperContent {
+  border: 1px solid #3e3e3e !important;
+  border-radius: 4px !important;
+  background-color: #282828;
+  width: 55%;
+}

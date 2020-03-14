@@ -1,13 +1,27 @@
-.friendsList {
+.imagWrapper {
+    display: flex;
+    flex-direction: column;
+}
+.friendsBar {
+    font-size: 35px;
+    text-align: center;
+    border: 1px solid #3e3e3e !important;
+    border-radius: 4px !important;
+    background-color: #282828;
+    width: 20%;
+  }
+  .friendsItems {
+    display: flex;
+    flex-wrap: wrap;
     font-size: small;
     overflow:hidden;
     width: 100%;
     text-overflow: ellipsis;
-}
-
-.imag{
+  }
+  .imag{
     background-size: cover;
     width: 50px;
     height: 50px;
     border-radius: 30px;
-}
+  }
+  

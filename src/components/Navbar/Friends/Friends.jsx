@@ -1,14 +1,21 @@
 import React from 'react';
-import styles from './Friends.module.css';
+import style from './Friends.module.css';
 
 
-const Friends = ({ image, name }) => {
+const Friends = ({ dialogs }) => {
+    let friendsElements = dialogs.map(f =>
+        <div className={style.imagWrapper}>
+            <img alt='gav' className={style.imag}
+                key={f.id} src={f.imag} />
+            {f.name}</div>);
     return (
-        <div className={styles.friendsList}>
-            <img src={image}
-                className={styles.imag}
-                alt='friends' />
-            <span>{name}</span>
+        <div className={style.friendsBar}>
+            <div>
+                <input placeholder='find your friends' />
+                <button>Find</button>
+            </div>
+            <span>My Friends</span>
+            <div className={style.friendsItems}>{friendsElements}</div>
         </div>
     )
 }

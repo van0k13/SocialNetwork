@@ -1,4 +1,7 @@
 .profileBlock {
+  border: 1px solid #3e3e3e !important;
+  border-radius: 4px !important;
+  background-color: #282828;
     grid-template-rows: 10% 1fr;
     grid-template-columns: 1fr;
     grid-gap: 10px;
