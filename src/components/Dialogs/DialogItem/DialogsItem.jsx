@@ -2,12 +2,12 @@ import React from 'react'
 import styles from './DialogsItem.module.css'
 import { NavLink } from 'react-router-dom'
 
-const DialogItem = (props) => {
-    let id = '/dialogs/' + props.id
+const DialogItem = ({id, imag,name}) => {
+    let ident = `/dialogs/${id}`
     return (
-        <div>
-            <NavLink to={id}><img src={props.imag}
-              className={styles.imag} alt='avatar ' />{props.name}</NavLink>
+        <div className={styles.wrapper}>
+            <NavLink to={ident}><img src={imag}
+              className={styles.imag} alt='avatar ' />{name}</NavLink>
         </div>
     )
 }

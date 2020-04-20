@@ -1,13 +1,12 @@
 .dialogs {
-display: grid;
-grid-template-columns: 6% 15% 1fr;
-grid-template-rows:1fr;
+display: flex;
+flex-direction: row;
 
 }
 .dialogsList {
  padding: 10px;
  text-decoration: none;
- background-size: 1;
+ border-right: 1px solid white;
 }
     
 .dialogsList .active {
@@ -16,5 +15,8 @@ grid-template-rows:1fr;
 }
 
 .messages {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
 padding: 10px;
 }

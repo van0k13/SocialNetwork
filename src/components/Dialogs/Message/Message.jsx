@@ -7,7 +7,7 @@ import styles from '../Dialogs.module.css'
 const Message = ({text}) => {
     return (
         <div className={styles.message}>
-            {text}
+            - {text}
         </div>
     )
 }

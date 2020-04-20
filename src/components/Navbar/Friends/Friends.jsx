@@ -4,7 +4,7 @@ import style from './Friends.module.css';
 
 const Friends = ({ dialogs }) => {
     let friendsElements = dialogs.map(f =>
-        <div className={style.imagWrapper}>
+        <div className={style.imagWrapper} key={f.id}>
             <img alt='gav' className={style.imag}
                 key={f.id} src={f.imag} />
             {f.name}</div>);

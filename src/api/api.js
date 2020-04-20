@@ -80,3 +80,16 @@ export const securityAPI = {
         return response.data
     }
 }
+export const dialogsAPI = {
+    async getDialogs() {
+        const res = await instance
+        .get('dialogs')
+        return res.data
+    },
+    async putDialogUp(userId) {
+        const res = await instance
+        .put(`dialogs/${userId}`)
+        return res.data
+    }
+
+}

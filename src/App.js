@@ -29,10 +29,7 @@ class App extends React.Component {
         if (!this.props.initialized) {
             return <Preloader />
         } else {
-           
-            console.log(this.props.dialogs)
             return (
-
                 <div className={style.appWrapper}>
                     <div className={style.header}>
                         <HeaderContainer />
