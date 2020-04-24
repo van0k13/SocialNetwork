@@ -20,3 +20,8 @@ flex-direction: column;
 justify-content: space-between;
 padding: 10px;
 }
+.messages button {
+    background-color: transparent;
+    color: aliceblue;
+    border: none;
+}

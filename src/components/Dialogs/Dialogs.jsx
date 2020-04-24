@@ -3,37 +3,47 @@ import React from 'react';
 import DialogItem from './DialogItem/DialogsItem';
 import styles from './Dialogs.module.css';
 import Message from './Message/Message';
-import {Field, reduxForm} from "redux-form";
+import { Field, reduxForm } from "redux-form";
 import { Textarea } from '../common/FormsControl/FormsControl';
 import { requiredField, maxLengthCreator } from '../../utils/validators/validator';
 
 let maxLength50 = maxLengthCreator(100)
-const Dialogs = (props) => {
-    let state = props.dialogsPage;
-    let dialogsElements = state.dialogs
+const Dialogs = ({ currentDialogMessagesCount,
+    sendMessageTC, dialogs, messages, selectedDialogId, userId }) => {
+    let dialogsElements = dialogs
         .map(d => <DialogItem key={d.id}
-                              imag={d.imag}
-                              name={d.name}
-                              id={d.id}
+            newMessage={d.hasNewMessages}
+            imag={d.photos.small}
+            name={d.userName}
+            id={d.id}
         />);
-    let messageElements = state.messages
+    let messageElements = messages
         .map(text => <Message key={text.id}
-                              text={text.message}
+            who={text.senderName}
+            viewed={text.viewed}
+            text={text.body}
         />);
 
 
-   let addNewMessage = (values) => {
-        props.sendMessage(values.newMessage)
+    let addNewMessage = (values) => {
+        sendMessageTC(userId, values.newMessage)
     }
     return (
         <div className={styles.dialogs}>
             <div className={styles.dialogsList}>
                 {dialogsElements}
             </div>
-            <div className={styles.messages}>
-                <div> {messageElements} </div>
-                <AddMessageReduxForm onSubmit={addNewMessage}/>
-            </div>
+            {!selectedDialogId && <div>Please select your dialog</div>}
+            {selectedDialogId &&
+                <div className={styles.messages}>
+                    {
+                        messages.length < currentDialogMessagesCount
+                        && <button>show prev messages...</button>
+                    }
+                    <div> {messageElements} </div>
+                    <AddMessageReduxForm onSubmit={addNewMessage} />
+                </div>
+            }
         </div>
     )
 }
@@ -54,7 +64,7 @@ const AddMessageForm = (props) => {
         </form>
     )
 }
-const AddMessageReduxForm = reduxForm({form: 'dialogs'})(AddMessageForm)
+const AddMessageReduxForm = reduxForm({ form: 'dialogs' })(AddMessageForm)
 
 export default Dialogs
 

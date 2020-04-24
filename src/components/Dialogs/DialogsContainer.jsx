@@ -1,16 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import Dialogs from './Dialogs'
-import { sendMessageTC, getDialogsTC } from '../../redux/reducer_dialogs'
+import { initTC, updateDialogTC, sendMessageTC } from '../../redux/reducer_dialogs'
 import { connect } from 'react-redux';
 import { withAuthRedirectComponent } from '../../HOC/WithAuthRedirect';
 import { compose } from 'redux';
-import { dialogsAPI } from '../../api/api';
 
 
 class DialogsContainer extends React.Component {
     componentDidMount() {
-        dialogsAPI.getDialogs()
+        this.props.initTC(this.props.userId)
+    }
+
+    componentDidUpdate(prevProps) {
+        if(prevProps.userId !== this.props.userId)
+        this.props.updateDialogTC(this.props.userId)
     }
     render() {
         return (
@@ -19,14 +23,17 @@ class DialogsContainer extends React.Component {
     }
 }
 
-let mapStateToProps = (state) => {
+let mapState = (state) => {
     return {
-        dialogsPage: state.dialogsPage
+        dialogs: state.dialogsPage.dialogs,
+        messages: state.dialogsPage.messages,
+        selectedDialogId: state.dialogsPage.selectedDialogId,
+        currentDialogMessagesCount: state.dialogsPage.currentDialogMessagesCount,
     }
 }
 
 export default compose(
-    connect(mapStateToProps, { sendMessageTC, getDialogsTC }),
+    connect(mapState, { initTC, updateDialogTC, sendMessageTC }),
     withAuthRedirectComponent
 )(DialogsContainer)
 

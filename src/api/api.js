@@ -83,12 +83,35 @@ export const securityAPI = {
 export const dialogsAPI = {
     async getDialogs() {
         const res = await instance
-        .get('dialogs')
+            .get('dialogs')
         return res.data
     },
     async putDialogUp(userId) {
         const res = await instance
-        .put(`dialogs/${userId}`)
+            .put(`dialogs/${userId}`)
+        return res.data
+    },
+    async getMessages(userId) {
+        const res = await instance
+            .get(`dialogs/${userId}/messages`)
+        return {
+            messages: res.data.items,
+            totalCount: res.data.totalCount
+        }
+    },
+    async getMessagesNewerThen(userId, date){
+        const res = await instance
+            .get(`dialogs/${userId}/messages/new?newerThen=${date}`)
+        return res.data
+    },
+    async sendMessage(userId, body) {
+        const res = await instance
+            .post(`dialogs/${userId}/messages`, { body })
+        return res.data
+    },
+    async getNewMessagesCount() {
+        const res = await instance
+            .get(`dialogs/messages/new/count`)
         return res.data
     }
 

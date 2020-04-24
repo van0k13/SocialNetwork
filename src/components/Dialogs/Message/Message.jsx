@@ -1,13 +1,13 @@
 import React from 'react'
-import styles from '../Dialogs.module.css'
+import styles from './Message.module.css'
 
 
 
 
-const Message = ({text}) => {
+const Message = ({text, who, viewed}) => {
     return (
         <div className={styles.message}>
-            - {text}
+           {who}:  {text} {!viewed? <span className={styles.noRead}>-</span> : <span className={styles.noRead}>+</span>}
         </div>
     )
 }

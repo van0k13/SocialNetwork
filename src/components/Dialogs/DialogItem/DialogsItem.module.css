@@ -6,7 +6,7 @@
     text-decoration: none;
     margin: 10px 28px;
 }
-.wrapper a:focus {
+.wrapper img:active {
     border-right: 1px solid white;
     color: brown;
 }

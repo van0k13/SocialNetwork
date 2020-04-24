@@ -3,7 +3,7 @@ import styles from './Navbar.module.css';
 import { NavLink } from 'react-router-dom'
 
 
-const Navbar = () => {
+const Navbar = ({newMessagesCount}) => {
     return (
         <div className={styles.nav}>
             <nav className={styles.tabs}>
@@ -11,7 +11,8 @@ const Navbar = () => {
                     <NavLink to='/profile' activeClassName={styles.activeLink}>Profile</NavLink>
                 </div>
                 <div className={styles.item}>
-                    <NavLink to='/dialogs' activeClassName={styles.activeLink}>Messages</NavLink>
+                    <NavLink to='/dialogs' activeClassName={styles.activeLink}>Messages
+    {newMessagesCount > 0 ? `(${newMessagesCount})`: null}</NavLink>
                 </div>
                 <div className={styles.item}>
                     <NavLink to='/users' activeClassName={styles.activeLink}>Users</NavLink>

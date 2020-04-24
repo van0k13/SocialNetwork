@@ -7,6 +7,7 @@ import thunkMiddleware from 'redux-thunk'
 import {reducer as formReducer} from 'redux-form'
 import appReducer from "./app_reducer";
 import { composeWithDevTools } from 'redux-devtools-extension';
+import logger from "redux-logger";
 
 
 let reducersPack = combineReducers({
@@ -18,7 +19,7 @@ let reducersPack = combineReducers({
     app: appReducer
 });
 
-let store = createStore(reducersPack, composeWithDevTools(applyMiddleware(thunkMiddleware)));
+let store = createStore(reducersPack, composeWithDevTools(applyMiddleware(logger, thunkMiddleware)));
 
 window.store = store
 

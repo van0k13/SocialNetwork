@@ -9,13 +9,15 @@ import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { initializeApp } from './redux/app_reducer';
+import { getNewMessagesTC } from './redux/reducer_dialogs';
 import Preloader from './components/common/preloader/preloader';
 import HeaderContainer from './components/Header/HeaderContainer';
 import withSuspense from './HOC/withSuspence';
 import Friends from './components/Navbar/Friends/Friends';
+import DialogsContainer from './components/Dialogs/DialogsContainer';
 
 const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileContainer'));
-const DialogsContainer = React.lazy(() => import('./components/Dialogs/DialogsContainer'));
+// const DialogsContainer = React.lazy((props) => import('./components/Dialogs/DialogsContainer'));
 const Music = React.lazy(() => import('./components/Music/Music'));
 const Settings = React.lazy(() => import('./components/Settings/Settings'));
 const News = React.lazy(() => import('./components/News/News'));
@@ -24,6 +26,9 @@ const UsersContainer = React.lazy(() => import('./components/Users/UsersContaine
 class App extends React.Component {
     componentDidMount() {
         this.props.initializeApp();
+        setInterval(()=> {
+            this.props.getNewMessagesTC();
+        }, 100*1000)
     }
     render() {
         if (!this.props.initialized) {
@@ -36,12 +41,14 @@ class App extends React.Component {
                     </div>
                     <div className={style.navbarPlusContent}>
                         <div className={style.navbar}>
-                            <Navbar store={this.props.store} />
+                            <Navbar newMessagesCount={this.props.newMessagesCount}/>
                         </div>
                         <div className={style.appWrapperContent}>
                             <Switch>
                                 <Route exact path='/' render={() => <Redirect to='/profile' />} />
-                                <Route path='/dialogs' render={withSuspense(DialogsContainer)} />
+                                <Route path='/dialogs/:userId?'
+                                    render={(props) => <DialogsContainer
+                                        userId={props.match.params.userId} />} />
                                 <Route path='/profile/:userId?' render={withSuspense(ProfileContainer)} />
                                 <Route path='/login' render={
                                     () => <Login />} />
@@ -52,7 +59,7 @@ class App extends React.Component {
                                 <Route path='*' render={() => <div>404 BAD address</div>} />
                             </Switch>
                         </div>
-                       <Friends dialogs={this.props.dialogs}/>
+                        <Friends dialogs={this.props.dialogs} />
                     </div>
                 </div>
             );
@@ -62,11 +69,12 @@ class App extends React.Component {
 
 const mstp = (state) => ({
     initialized: state.app.initialized,
-    dialogs: state.dialogsPage.dialogs
+    dialogs: state.dialogsPage.dialogs,
+    newMessagesCount: state.dialogsPage.newMessagesCount
 })
 let AppContainer = compose(
     withRouter,
-    connect(mstp, { initializeApp }))(App);
+    connect(mstp, { initializeApp, getNewMessagesTC }))(App);
 let MainApp = (props) => {
     return <BrowserRouter>
         <Provider store={store} >
