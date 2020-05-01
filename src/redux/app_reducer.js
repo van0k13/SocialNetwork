@@ -1,5 +1,4 @@
 import { setAuth } from './auth_reducer';
-import { dialogsAPI } from '../api/api';
 
 const INITIALIZED_SUCCESSED = 'appReducer/INITIALIZED_SUCCESSED';
 
