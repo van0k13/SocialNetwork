@@ -1,5 +1,5 @@
 import React from 'react';
-import store from './redux/redux-store.ts';
+import store from './redux/redux-store.js';
 import { BrowserRouter, Switch, Redirect } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import { Route, withRouter } from 'react-router-dom';
@@ -8,7 +8,7 @@ import Navbar from './components/Navbar/Navbar';
 import Login from './components/Login/Login';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import { initializeApp } from './redux/app_reducer.tsx';
+import { initializeApp } from './redux/app_reducer.js';
 import { getNewMessagesTC } from './redux/reducer_dialogs';
 import Preloader from './components/common/preloader/preloader';
 import HeaderContainer from './components/Header/HeaderContainer';
@@ -75,7 +75,7 @@ const mstp = (state) => ({
 let AppContainer = compose(
     withRouter,
     connect(mstp, { initializeApp, getNewMessagesTC }))(App);
-let MainApp = (props) => {
+let MainApp = () => {
     return <BrowserRouter>
         <Provider store={store} >
             <AppContainer />

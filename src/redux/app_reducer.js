@@ -1,8 +1,6 @@
-import { setAuth } from './auth_reducer';
+import {setAuth} from './auth_reducer';
 
-const INITIALIZED_SUCCESSED = 'appReducer/INITIALIZED_SUCCESSED';
-
-
+export const INITIALIZED_SUCCESSED = 'appReducer/INITIALIZED_SUCCESSED';
 
 let initialState = {
     initialized: false,
@@ -29,12 +27,3 @@ export const initializeApp = () => async (dispatch) => {
 }
 
 export default appReducer;
-
-// export const initializeApp = () => (dispatch) => {
-//     let promise = dispatch(setAuth());
-//     Promise.all([promise])
-//     .then(()=> {
-//       dispatch(setInitializedSuccess())
-//     })
-//   }
-//   export default appReducer;
